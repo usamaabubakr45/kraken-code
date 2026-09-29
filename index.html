@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kraken Code | Web Dev Magician & High-Performance Web Engineering</title>
+  <meta name="description" content="Kraken Code - Founded by Usama Abu Bakr. Web Dev Magician, AI Superstar, and GTM Lead Gen Engineer crafting high-converting, modern digital experiences.">
+
+  <!-- ===== Brand icons / PWA ===== -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#07090e">
+
+  <!-- ===== Social sharing / SEO =====
+       NOTE: after deploying, search & replace "https://kraken-code.example.com"
+       with your live domain (also in robots.txt and sitemap.xml). -->
+  <link rel="canonical" href="https://kraken-code.example.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kraken Code">
+  <meta property="og:title" content="Kraken Code | Web Dev Magician & High-Performance Web Engineering">
+  <meta property="og:description" content="Kraken Code - Founded by Usama Abu Bakr. Web Dev Magician, AI Superstar, and GTM Lead Gen Engineer crafting high-converting, modern digital experiences.">
+  <meta property="og:url" content="https://kraken-code.example.com/">
+  <meta property="og:image" content="https://kraken-code.example.com/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kraken Code | Web Dev Magician & High-Performance Web Engineering">
+  <meta name="twitter:description" content="Kraken Code - Founded by Usama Abu Bakr. Web Dev Magician, AI Superstar, and GTM Lead Gen Engineer crafting high-converting, modern digital experiences.">
+  <meta name="twitter:image" content="https://kraken-code.example.com/assets/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+<link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+
+  <canvas id="bgLinesCanvas"></canvas>
+  <div class="ambient-mesh"></div>
+  <div class="grid-pattern"></div>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#home" class="brand">
+        <div class="brand-icon">
+          <!-- Kraken Trident/Tentacle Cyber Icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M5 7l7 5 7-5M5 15l7 5 7-5"/>
+            <circle cx="12" cy="4" r="1.5" fill="#ffffff"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="logo-title">Kraken Code</span>
+          
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#booking">Book a Call</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right">
+        <div class="tagline-pill">
+          We Build. <span class="highlight">You Grow.</span>
+        </div>
+        <a href="#contact" class="btn-glow btn-primary">
+          <span>Get Started</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="home" class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="pulse-dot"></span>
+          <span>Modern Websites • Stronger Businesses</span>
+        </div>
+
+        <h1 class="hero-title">
+          WE BUILD <br>
+          <span class="gradient-text">WEBSITES</span>
+          THAT GROW <br>
+          YOUR BUSINESS
+        </h1>
+
+        <p class="hero-desc">
+          We create ultra-fast, modern, conversion-engineered and AI-powered websites that turn visitors into pipeline, elevate your brand, and outclass your competition.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contact" class="btn-glow btn-primary">
+            <span>GET STARTED</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+          <a href="#portfolio" class="btn-glow btn-secondary">
+            <span>VIEW WORK</span>
+          </a>
+        </div>
+
+        <div class="founder-badge-hero">
+          <div class="founder-avatar">UA</div>
+          <div class="founder-info">
+            <div class="name">
+              Usama Abu Bakr
+              <span class="role-pill">Founder & Lead Dev</span>
+            </div>
+            <div class="title">Web Dev Magician • AI Superstar • GTM Lead Gen Engineer</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D LAPTOP WITH 60FPS PURPLE GLOW VISUALIZER INSIDE -->
+      <div class="laptop-stage">
+        <div class="laptop-glow-underlay"></div>
+        
+        <div class="laptop-3d-wrap" id="laptopRig">
+          <div class="laptop-screen-bezel">
+            <div class="screen-camera"></div>
+            
+            <div class="screen-display">
+              <!-- Live 60 FPS Canvas with moving purple radiant energy waves -->
+              <canvas id="laptopCanvas"></canvas>
+
+              <div class="screen-content-overlay">
+                <div class="screen-topbar">
+                  <div class="screen-top-logo">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2.5">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    </svg>
+                    <span>Kraken Code</span>
+                  </div>
+                  <div class="screen-top-nav">
+                    <span>Home</span>
+                    <span>Services</span>
+                    <span>Work</span>
+                    <span>Contact</span>
+                  </div>
+                </div>
+
+                <div class="screen-hero-preview">
+                  <div class="screen-badge">ENGINEERED FOR SCALE</div>
+                  <h2 class="screen-headline">Digital Experiences <br><span>That Drive Results</span></h2>
+                  <p class="screen-subtext">Cutting-edge web engineering built by Usama Abu Bakr with AI integration and viral lead gen architecture.</p>
+                  <div class="screen-buttons">
+                    <span class="screen-btn btn-primary" style="padding: 4px 10px; font-size: 0.65rem;">Explore Live Demo</span>
+                  </div>
+                </div>
+
+                <div class="screen-stats-row">
+                  <div class="screen-stat-item">
+                    <div class="num">150+</div>
+                    <div class="lbl">Projects Deployed</div>
+                  </div>
+                  <div class="screen-stat-item">
+                    <div class="num">99.8%</div>
+                    <div class="lbl">Client Satisfaction</div>
+                  </div>
+                  <div class="screen-stat-item">
+                    <div class="num">60 FPS</div>
+                    <div class="lbl">GPU Performance</div>
+                  </div>
+                  <div class="screen-stat-item">
+                    <div class="num">10x</div>
+                    <div class="lbl">Lead Generation</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="laptop-keyboard-base">
+            <div class="laptop-notch"></div>
+          </div>
+
+          <div class="floating-code-badge">
+            <div class="floating-code-icon">&lt;/&gt;</div>
+            <div>
+              <div style="font-size: 0.82rem; font-weight: 700; color: #fff;">100% Clean Code</div>
+              <div style="font-size: 0.7rem; color: #94a3b8;">Full-Stack &amp; Headless</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 VALUE PILLARS (Matching the 4 feature cards in original reference) -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <!-- Responsive screen icon -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3>Responsive Design</h3>
+          <p>Pixel-perfect fluid layouts that look and feel stunning across every iPhone, Android, tablet, and 4K display.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <!-- Lightning icon -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h3>Lightning Fast</h3>
+          <p>Engineered with next-gen caching, 60fps animations, and sub-second load times for peak Google Core Web Vitals.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <!-- Shield icon -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3>Secure &amp; Reliable</h3>
+          <p>Enterprise-grade security standards, automated backups, and 99.9% uptime architecture protect your brand 24/7.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-box">
+            <!-- SEO chart icon -->
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+          </div>
+          <h3>SEO &amp; GTM Friendly</h3>
+          <p>Semantic markup, schema structure, and high-converting inbound funnels designed to dominate Google ranks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION (EXACT REPLICA OF USER REFERENCE DESIGN) -->
+  <section id="services" class="section-wrapper">
+    <div class="container">
+      <div class="services-modern-stage">
+        
+        <!-- Left Content Column -->
+        <div class="services-left-content">
+          <span class="services-eyebrow-tag">WHAT WE DO</span>
+          <h2 class="services-headline">
+            Complete Website <br>
+            Solutions For <span class="highlight-purple">Your <br>Business</span>
+          </h2>
+          <p class="services-subdesc">
+            From stunning designs to powerful functionality, we provide end-to-end web solutions tailored to your goals.
+          </p>
+
+          <ul class="services-checklist-new">
+            <li onclick="highlightServiceCard('web-dev')">
+              <span class="check-bubble">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Custom Website Design</span>
+            </li>
+            <li onclick="highlightServiceCard('ecom-dev')">
+              <span class="check-bubble">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>E-Commerce Development</span>
+            </li>
+            <li onclick="highlightServiceCard('wp-dev')">
+              <span class="check-bubble">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>CMS Development</span>
+            </li>
+            <li onclick="highlightServiceCard('landing-dev')">
+              <span class="check-bubble">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Landing Pages</span>
+            </li>
+            <li onclick="highlightServiceCard('maint-dev')">
+              <span class="check-bubble">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Website Maintenance &amp; Support</span>
+            </li>
+          </ul>
+
+          <a href="#services-detail-grid" class="btn-explore-services">
+            <span>Explore Services</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- Right Visual Column: 3 Floating Windows & Glowing Satisfaction Circle -->
+        <div class="services-stage-3d">
+          
+          <!-- Curved Dashed Arrows -->
+          <svg class="curved-arrow-left" viewBox="0 0 100 100" fill="none">
+            <path d="M10 80 C 20 20, 80 40, 90 70" stroke="#6366f1" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+            <polyline points="85 75 92 70 88 62" stroke="#6366f1" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+
+          <svg class="curved-arrow-right" viewBox="0 0 100 100" fill="none">
+            <path d="M10 30 C 50 10, 80 50, 85 90" stroke="#a855f7" stroke-width="2" stroke-dasharray="4 4" stroke-linecap="round"/>
+            <polyline points="78 85 85 92 90 85" stroke="#a855f7" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+
+          <!-- 1. Left Light Window -->
+          <div class="floating-window-left">
+            <div class="fw-left-header">
+              <div class="fw-left-dot" style="background:#6366f1;"></div>
+              <span style="font-size:0.75rem; font-weight:800; color:#0f172a;">KrakenCraft</span>
+            </div>
+            <div class="fw-left-title">Unlocking<br>Potential<br>Through<br>Design.</div>
+            <span class="fw-left-btn">Explore Work</span>
+            <div class="fw-left-grid">
+              <div class="fw-left-item">⚡ 60 FPS UI</div>
+              <div class="fw-left-item">💎 High AOV</div>
+              <div class="fw-left-item">📱 Responsive</div>
+              <div class="fw-left-item">🚀 Next.js</div>
+            </div>
+          </div>
+
+          <!-- 2. Main Center Dark Window with White Bottom Bar -->
+          <div class="floating-window-center">
+            <div>
+              <div class="fw-mac-header">
+                <div class="fw-traffic-lights">
+                  <div class="tl-dot tl-red"></div>
+                  <div class="tl-dot tl-yellow"></div>
+                  <div class="tl-dot tl-green"></div>
+                </div>
+                <span style="font-size:0.72rem; font-weight:700; color:#94a3b8;">Kraken Code Engine</span>
+                <div style="width:30px;"></div>
+              </div>
+
+              <div class="fw-center-body">
+                <div class="fw-center-headline">Innovative<br>Solutions For<br>Modern Brands</div>
+                <p class="fw-center-text">Award-winning full-stack web architectures engineered for high-performance scale and pipeline generation.</p>
+                <div class="fw-center-btn">
+                  <span>Explore More</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </div>
+
+                <!-- Mini laptop mockup inside center window -->
+                <div class="fw-mini-laptop-graphic">
+                  <div style="background:#161c2e; border:1px solid rgba(255,255,255,0.15); border-radius:10px 10px 2px 2px; padding:6px; box-shadow:0 15px 30px rgba(0,0,0,0.8);">
+                    <div style="background:#090d18; border-radius:6px; height:105px; padding:8px; display:flex; flex-direction:column; justify-content:space-between;">
+                      <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:0.55rem; font-weight:700; color:#a855f7;">Kraken OS</span>
+                        <div style="width:4px; height:4px; border-radius:50%; background:#10b981;"></div>
+                      </div>
+                      <div style="background:linear-gradient(135deg, rgba(124,58,237,0.3), rgba(59,130,246,0.3)); border-radius:4px; padding:6px;">
+                        <span style="font-size:0.6rem; font-weight:800; color:#fff; display:block;">Digital Scale</span>
+                        <span style="font-size:0.5rem; color:#93c5fd;">Conversion Engine</span>
+                      </div>
+                      <div style="display:flex; gap:6px;">
+                        <div style="height:3px; width:40%; background:#6366f1; border-radius:2px;"></div>
+                        <div style="height:3px; width:30%; background:#a855f7; border-radius:2px;"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div style="height:6px; background:#242c42; border-radius:0 0 8px 8px; margin-top:-1px;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- White Bottom Bar matching reference -->
+            <div class="fw-white-bottom-bar">
+              <div class="fw-pillar-item">
+                <div class="fw-pillar-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path></svg>
+                </div>
+                <span class="fw-pillar-label">UI/UX Design</span>
+              </div>
+              <div class="fw-pillar-item">
+                <div class="fw-pillar-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                </div>
+                <span class="fw-pillar-label">Development</span>
+              </div>
+              <div class="fw-pillar-item">
+                <div class="fw-pillar-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <span class="fw-pillar-label">Branding</span>
+              </div>
+              <div class="fw-pillar-item">
+                <div class="fw-pillar-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                </div>
+                <span class="fw-pillar-label">SEO</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Right Dark Window -->
+          <div class="floating-window-right">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <span style="font-size:0.75rem; font-weight:800; color:#fff;">Kraken Lab</span>
+              <div style="display:flex; gap:4px;">
+                <div style="width:6px; height:6px; border-radius:50%; background:#a855f7;"></div>
+                <div style="width:6px; height:6px; border-radius:50%; background:#3b82f6;"></div>
+              </div>
+            </div>
+            <div class="fw-right-headline">Grow Your<br>Business<br>With Us</div>
+            <span class="fw-right-btn">Get Started &rarr;</span>
+            <div style="height:110px; border-radius:10px; background:#141a2c; padding:12px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+              <span style="font-size:1.6rem; font-weight:900; color:#60a5fa;">+284%</span>
+              <span style="font-size:0.7rem; color:#cbd5e1;">Average Growth Rate</span>
+            </div>
+          </div>
+
+          <!-- 4. Glowing 100% Satisfaction Guaranteed Circular Badge -->
+          <div class="glowing-satisfaction-circle">
+            <div class="circle-score">100%</div>
+            <div class="circle-text">Satisfaction<br>Guaranteed</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Detail Grid anchor -->
+      <div id="services-detail-grid" style="margin-top: 80px;">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 40px;">
+          <span class="section-eyebrow">COMPREHENSIVE CAPABILITIES</span>
+          <h3 style="font-size: 2.2rem; font-weight: 800; color: #fff;">Every Service Tailored For Market Dominance</h3>
+          <p style="color: #94a3b8; font-size: 0.95rem;">Curated and delivered directly by Usama Abu Bakr with magical attention to detail, modern tech stacks, and relentless focus on lead generation.</p>
+        </div>
+
+        <div class="services-grid-10">
+          <div class="service-card-full highlighted-lead" id="web-dev">
+            <div>
+              <div class="service-card-top">
+                <div class="s-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                </div>
+                <span class="badge-trend">Top Trend #1</span>
+              </div>
+              <h4>Website Design &amp; Development</h4>
+              <p>Custom, scalable websites crafted from scratch. We combine modern JavaScript frameworks (React, Next.js) and clean semantic HTML/CSS to build websites that load in the blink of an eye and convert traffic into paying clients.</p>
+            </div>
+            <div class="service-tags">
+              <span class="service-tag">Next.js</span>
+              <span class="service-tag">React</span>
+              <span class="service-tag">Tailwind</span>
+              <span class="service-tag">Full-Stack</span>
+            </div>
+          </div>
+
+          <div class="service-card-full highlighted-lead" id="wp-dev">
+            <div>
+              <div class="service-card-top">
+                <div class="s-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </div>
+                <span class="badge-trend">Industry Standard</span>
+              </div>
+              <h4>WordPress Development</h4>
+              <p>World-class custom WordPress solutions without the bloat. We build custom themes, Gutenberg block libraries, and headless WordPress setups that empower non-technical teams while preserving 100/100 speed scores.</p>
+            </div>
+            <div class="service-tags">
+              <span class="service-tag">Custom ACF</span>
+              <span class="service-tag">Gutenberg</span>
+              <span class="service-tag">Headless WP</span>
+              <span class="service-tag">WooCommerce</span>
+            </div>
+          </div>
+
+          <div class="service-card-full" id="ecom-dev">
+            <div>
+              <div class="service-card-top">
+                <div class="s-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                </div>
+                <span class="badge-trend">Revenue Engine</span>
+              </div>
+              <h4>E-commerce Development</h4>
+              <p>Scalable digital storefronts that sell. Optimized checkout tunnels, automated inventory syncing, high-security payment integrations, and seamless 1-click upsells engineered to maximize Average Order Value (AOV).</p>
+            </div>
+            <div class="service-tags">
+              <span class="service-tag">Stripe</span>
+              <span class="service-tag">WooCommerce</span>
+              <span class="service-tag">Subscriptions</span>
+            </div>
+          </div>
+
+          <div class="service-card-full">
+            <div>
+              <div class="service-card-top">
+                <div class="s-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                </div>
+                <span class="badge-trend">Figma Masters</span>
+              </div>
+              <h4>UI/UX Design</h4>
+              <p>Intuitive user journeys and breathtaking aesthetics. We craft design systems, interactive prototypes, and conversion-centered interfaces that hook visitors in seconds and guide them effortlessly toward action.</p>
+            </div>
+            <div class="service-tags">
+              <span class="service-tag">Figma Prototyping</span>
+              <span class="service-tag">Design Systems</span>
+              <span class="service-tag">User Research</span>
+            </div>
+          </div>
+
+          <div class="service-card-full">
+            <div>
+              <div class="service-card-top">
+                <div class="s-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <span class="badge-trend">Strategic Edge</span>
+              </div>
+              <h4>Website Discovery</h4>
+              <p>De-risk your digital project before touching code. We deep-dive into your competitors, audience psychology, tech stack feasibility, and business KPIs to forge a bulletproof architectural roadmap.</p>
+            </div>
+            <div class="service-tags">
+              <span class="service-tag">Audits</span>
+              <span class="service-tag">Competitive Intel</span>
+              <span class="service-tag">Tech Stack Plan</span>
+            </div>
+          </div>
+
+          <div class="service-card-full">
+            <div>
+              <div class="service-card-top">
+                <div class="s-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                </div>
+                <span class="badge-trend">Architecture</span>
+              </div>
+              <h4>Sitemaps &amp; Wireframes</h4>
+              <p>Structural blueprints that map every user interaction, data model, and page hierarchy. Eliminates guesswork, speeds up development by 40%, and guarantees clarity across stakeholders.</p>
+            </div>
+            <div class="service-tags">
+              <span class="service-tag">Information Arch</span>
+              <span class="service-tag">UX Flows</span>
+              <span class="service-tag">Lo-Fi / Hi-Fi</span>
+            </div>
+          </div>
+
+          <div class="service-card-full">
+            <div>
+              <div class="service-card-top">
+                <div class="s-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
+                <span class="badge-trend">Persuasive Copy</span>
+              </div>
+              <h4>Website Content Writing</h4>
+              <p>Magnetic, high-converting copy powered by psychological persuasion and SEO keywords. We write headlines that stop the scroll and value propositions that make saying "No" impossible.</p>
+            </div>
+            <div class="service-tags">
+              <span class="service-tag">SEO Copy</span>
+              <span class="service-tag">Brand Story</span>
+              <span class="service-tag">Value Proposition</span>
+            </div>
+          </div>
+
+          <div class="service-card-full" id="maint-dev">
+            <div>
+              <div class="service-card-top">
+                <div class="s-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                </div>
+                <span class="badge-trend">24/7 Peace of Mind</span>
+              </div>
+              <h4>Website Maintenance &amp; Hosting</h4>
+              <p>White-glove care for mission-critical web applications. Real-time security scans, cloud edge caching, continuous plugin upgrades, automated cloud backups, and immediate bug resolution.</p>
+            </div>
+            <div class="service-tags">
+              <span class="service-tag">Cloudflare CDN</span>
+              <span class="service-tag">Daily Backups</span>
+              <span class="service-tag">Uptime 99.9%</span>
+            </div>
+          </div>
+
+          <div class="service-card-full highlighted-lead" id="landing-dev">
+            <div>
+              <div class="service-card-top">
+                <div class="s-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </div>
+                <span class="badge-trend">GTM Specialization</span>
+              </div>
+              <h4>Landing Page Design</h4>
+              <p>Hyper-focused landing pages engineered for paid ad traffic (Google Ads, Meta, LinkedIn). Built by a GTM Lead Gen engineer to maximize click-to-lead ratios and lower customer acquisition costs.</p>
+            </div>
+            <div class="service-tags">
+              <span class="service-tag">A/B Testing</span>
+              <span class="service-tag">Lead Magnets</span>
+              <span class="service-tag">Ad Alignment</span>
+            </div>
+          </div>
+
+          <div class="service-card-full">
+            <div>
+              <div class="service-card-top">
+                <div class="s-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </div>
+                <span class="badge-trend">Shopify Plus Ready</span>
+              </div>
+              <h4>Shopify Development</h4>
+              <p>Bespoke Shopify theme crafting, Liquid code optimization, headless storefronts (Hydrogen), and custom app integrations that deliver rapid shopping experiences and effortless checkout flows.</p>
+            </div>
+            <div class="service-tags">
+              <span class="service-tag">Shopify 2.0</span>
+              <span class="service-tag">Liquid</span>
+              <span class="service-tag">App Integration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT US / ABOUT USAMA ABU BAKR SECTION -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-card-giant">
+        <div class="about-avatar-column">
+          <div class="magician-frame">
+            <div class="magician-inner">
+              <div class="magician-crown">👑</div>
+              <div class="initials">UA</div>
+              <div class="magician-wand-pulse">⚡ Magician In Action ⚡</div>
+            </div>
+          </div>
+
+          <h3 class="founder-title-name">Usama Abu Bakr</h3>
+          <div class="founder-status-badge">Founder &amp; Chief Architect</div>
+
+          <div class="triple-crown-badges">
+            <span class="triple-badge magician">🪄 Web Dev Magician</span>
+            <span class="triple-badge ai">✨ AI-Superstar</span>
+            <span class="triple-badge gtm">🎯 GTM Lead Gen Engineer</span>
+          </div>
+        </div>
+
+        <div class="about-bio-column">
+          <span class="section-eyebrow">ABOUT THE FOUNDER</span>
+          <h3>Bridging Wizard-Level Code, Generative AI &amp; Explosive Pipeline Growth</h3>
+          
+          <p>
+            Hi, I’m <strong>Usama Abu Bakr</strong>. In a world saturated with cookie-cutter page templates and sluggish websites, I bridge the worlds of elite technical wizardry and relentless commercial outcomes.
+          </p>
+
+          <p>
+            As a <strong>Web Dev Magician</strong>, I conjure digital experiences that run with buttery 60fps smoothness, immaculate code architectures, and bespoke visual aesthetics that stop customers in their tracks. I don’t just write HTML, CSS, or PHP; I sculpt high-octane web machines that load instantly and perform flawlessly.
+          </p>
+
+          <p>
+            As an <strong>AI-Superstar</strong>, I infuse cutting-edge artificial intelligence, dynamic personalization engines, and smart automation directly into your web properties—giving your business a generational unfair advantage.
+          </p>
+
+          <p>
+            And as a <strong>GTM (Go-To-Market) Lead Gen Engineer</strong>, every pixel I touch is reverse-engineered from one single North Star metric: <em>generating qualified inbound leads and expanding your revenue</em>. If your website looks pretty but fails to fill your pipeline, it's not finished. At Kraken Code, we build websites that win.
+          </p>
+
+          <div class="bio-metrics-grid">
+            <div class="bio-metric-box">
+              <div class="val">100%</div>
+              <div class="label">Custom Crafted Code</div>
+            </div>
+            <div class="bio-metric-box">
+              <div class="val">60 FPS</div>
+              <div class="label">Hardware-Accelerated UI</div>
+            </div>
+            <div class="bio-metric-box">
+              <div class="val">3.8x</div>
+              <div class="label">Avg Conversion Spike</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO SECTION -->
+  <section id="portfolio" class="portfolio-section">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-eyebrow">FEATURED CLIENT WORK</span>
+        <h2 class="section-title">Websites Engineered <br><span class="grad">For Scalable Success</span></h2>
+        <p class="section-subtitle" style="margin: 0 auto 30px;">
+          Explore our high-converting web applications, clinic portals, trade service engines, and e-commerce platforms engineered by Usama Abu Bakr.
+        </p>
+
+        <!-- Category Filter Tabs -->
+        <div style="display:flex; justify-content:center; gap:12px; margin-top:25px; flex-wrap:wrap;">
+          <button class="portfolio-filter-btn" onclick="filterPortfolio('all')" id="filter-all">All Works</button>
+          <button class="portfolio-filter-btn active" onclick="filterPortfolio('ecommerce')" id="filter-ecommerce">🛍️ E-Commerce &amp; Shopify Stores</button>
+          <button class="portfolio-filter-btn" onclick="filterPortfolio('medical')" id="filter-medical">🏥 Medical &amp; Healthcare</button>
+          <button class="portfolio-filter-btn" onclick="filterPortfolio('trades')" id="filter-trades">🔧 HVAC, Plumbing &amp; Electrical</button>
+          </div>
+      </div>
+
+      <!-- PORTFOLIO GRID -->
+      <div class="portfolio-grid" id="portfolioContainer">
+
+        <!-- ECOMMERCE ITEM 1: SoundPeak Audio (Image 1) -->
+        <div class="portfolio-card portfolio-item-card" data-category="ecommerce">
+          <div class="portfolio-thumb" style="height: 250px; background: #060814; cursor:pointer;" onclick="openLightbox('assets/ecom-soundpeak.png', 'SoundPeak — Premium Audio Experience & High-Fidelity Gear', 'Client: SoundPeak Audio')">
+            <img src="assets/ecom-soundpeak.png" alt="SoundPeak Audio Store" style="width:100%; height:100%; object-fit:cover; object-position:top;" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-pill" style="border-color: rgba(59,130,246,0.5); color:#93c5fd; background:rgba(6,12,30,0.85);">Shopify Plus • DTC Electronics</span>
+          </div>
+          <div class="portfolio-content">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:#60a5fa; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Client: SoundPeak</span>
+                <span class="badge-trend" style="font-size:0.6rem;">High AOV Funnel</span>
+              </div>
+              <h3>SoundPeak — Hear More. Feel More. Audio Gear</h3>
+              <p>Bespoke Shopify 2.0 audio storefront featuring 3D product showcase, interactive category navigator, dynamic bundle builder, and 1-click Express Checkout.</p>
+            </div>
+            <div class="portfolio-footer">
+              <span class="portfolio-stat">🎧 25,000+ Customers</span>
+              <a href="javascript:void(0)" onclick="openLightbox('assets/ecom-soundpeak.png', 'SoundPeak — Premium Audio Experience & High-Fidelity Gear', 'Client: SoundPeak Audio')" class="link-arrow">Live Review 🔍</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ECOMMERCE ITEM 2: DealKart Mega Store (Image 2) -->
+        <div class="portfolio-card portfolio-item-card" data-category="ecommerce">
+          <div class="portfolio-thumb" style="height: 250px; background: #1c0b38; cursor:pointer;" onclick="openLightbox('assets/ecom-dealkart.png', 'DealKart — Great Finds. Better Prices. Mega Marketplace', 'Client: DealKart Global')">
+            <img src="assets/ecom-dealkart.png" alt="DealKart Marketplace" style="width:100%; height:100%; object-fit:cover; object-position:top;" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-pill" style="border-color: rgba(168,85,247,0.5); color:#d8b4fe; background:rgba(30,12,60,0.85);">Multi-Vendor • Mega Catalog</span>
+          </div>
+          <div class="portfolio-content">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:#c084fc; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Client: DealKart</span>
+                <span class="badge-trend" style="font-size:0.6rem;">Countdown Deals</span>
+              </div>
+              <h3>DealKart — Daily Deals &amp; Marketplace Engine</h3>
+              <p>High-capacity e-commerce platform built for high concurrency. Features flash-sale timers, automated coupon stacking, VIP membership tiers, and sub-second filtering.</p>
+            </div>
+            <div class="portfolio-footer">
+              <span class="portfolio-stat">⚡ Up to 80% Off Sales</span>
+              <a href="javascript:void(0)" onclick="openLightbox('assets/ecom-dealkart.png', 'DealKart — Great Finds. Better Prices. Mega Marketplace', 'Client: DealKart Global')" class="link-arrow">Live Review 🔍</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ECOMMERCE ITEM 3: TimeCraft Watches (Image 3) -->
+        <div class="portfolio-card portfolio-item-card" data-category="ecommerce">
+          <div class="portfolio-thumb" style="height: 250px; background: #0a0a0e; cursor:pointer;" onclick="openLightbox('assets/ecom-timecraft.png', 'TimeCraft Watches — Precision. Crafted For Time.', 'Client: TimeCraft Horology')">
+            <img src="assets/ecom-timecraft.png" alt="TimeCraft Luxury Watches" style="width:100%; height:100%; object-fit:cover; object-position:top;" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-pill" style="border-color: rgba(234,179,8,0.5); color:#fde047; background:rgba(20,18,6,0.85);">Luxury DTC • Horology</span>
+          </div>
+          <div class="portfolio-content">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:#eab308; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Client: TimeCraft</span>
+                <span class="badge-trend" style="font-size:0.6rem;">Luxury Aesthetic</span>
+              </div>
+              <h3>TimeCraft — Swiss-Engineered Timepieces</h3>
+              <p>Minimalist dark-luxury Shopify storefront. Features multi-angle watch inspection zoom, limited edition serial verification, and VIP collectors club portal.</p>
+            </div>
+            <div class="portfolio-footer">
+              <span class="portfolio-stat">💎 +65% Conversion Spike</span>
+              <a href="javascript:void(0)" onclick="openLightbox('assets/ecom-timecraft.png', 'TimeCraft Watches — Precision. Crafted For Time.', 'Client: TimeCraft Horology')" class="link-arrow">Live Review 🔍</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ECOMMERCE ITEM 4: MEN'S Fashion Apparel (Image 4) -->
+        <div class="portfolio-card portfolio-item-card" data-category="ecommerce">
+          <div class="portfolio-thumb" style="height: 250px; background: #262220; cursor:pointer;" onclick="openLightbox('assets/ecom-mens.png', 'MEN\'S Apparel — Define Your Style. Modern Menswear', 'Client: MEN\'S Fashion House')">
+            <img src="assets/ecom-mens.png" alt="MEN'S Modern Menswear" style="width:100%; height:100%; object-fit:cover; object-position:top;" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-pill" style="border-color: rgba(217,119,6,0.5); color:#fde68a; background:rgba(35,28,22,0.85);">Fashion &amp; Apparel • Lookbook</span>
+          </div>
+          <div class="portfolio-content">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:#f59e0b; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Client: MEN'S Apparel</span>
+                <span class="badge-trend" style="font-size:0.6rem;">Lookbook Engine</span>
+              </div>
+              <h3>MEN'S — Modern Menswear &amp; Autumn Collection</h3>
+              <p>Editorial fashion commerce experience with interactive lookbook shopping, visual swatch pickers, size advisor engine, and seamless mobile checkouts.</p>
+            </div>
+            <div class="portfolio-footer">
+              <span class="portfolio-stat">👔 Premium Aesthetic</span>
+              <a href="javascript:void(0)" onclick="openLightbox('assets/ecom-mens.png', 'MEN\'S Apparel — Define Your Style. Modern Menswear', 'Client: MEN\'S Fashion House')" class="link-arrow">Live Review 🔍</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MEDICAL ITEM 1: PharmaCare -->
+        <div class="portfolio-card portfolio-item-card" data-category="medical">
+          <div class="portfolio-thumb" style="height: 250px; background: #082522; cursor:pointer;" onclick="openLightbox('assets/medical-pharmacare.png', 'PharmaCare — Care. Delivered. Always.', 'Client: PharmaCare')">
+            <img src="assets/medical-pharmacare.png" alt="PharmaCare Digital Pharmacy" style="width:100%; height:100%; object-fit:cover; object-position:top;" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-pill" style="border-color: rgba(20,184,166,0.5); color:#5eead4; background:rgba(4,30,28,0.85);">Medical • Digital Pharmacy</span>
+          </div>
+          <div class="portfolio-content">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:#2dd4bf; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Client: PharmaCare</span>
+                <span class="badge-trend" style="font-size:0.6rem;">High-Growth E-Com</span>
+              </div>
+              <h3>PharmaCare — Better Health, Delivered Daily</h3>
+              <p>High-volume e-commerce digital pharmacy with instant prescription upload scanner, smart refill subscription engine, and real-time medicine inventory tracking.</p>
+            </div>
+            <div class="portfolio-footer">
+              <span class="portfolio-stat">💊 3M+ Orders Processed</span>
+              <a href="javascript:void(0)" onclick="openLightbox('assets/medical-pharmacare.png', 'PharmaCare — Care. Delivered. Always.', 'Client: PharmaCare')" class="link-arrow">Live Review 🔍</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MEDICAL ITEM 2: VitalCare Health Clinic -->
+        <div class="portfolio-card portfolio-item-card" data-category="medical">
+          <div class="portfolio-thumb" style="height: 250px; background: #0e2925; cursor:pointer;" onclick="openLightbox('assets/medical-vitalcare.png', 'VitalCare Health Clinic — Your Health, Our Priority', 'Client: VitalCare Health Clinic')">
+            <img src="assets/medical-vitalcare.png" alt="VitalCare Health Clinic Portal" style="width:100%; height:100%; object-fit:cover; object-position:top;" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-pill" style="border-color: rgba(16,185,129,0.5); color:#6ee7b7; background:rgba(6,35,30,0.85);">Medical • Hospital &amp; Clinic</span>
+          </div>
+          <div class="portfolio-content">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:#34d399; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Client: VitalCare Health Clinic</span>
+                <span class="badge-trend" style="font-size:0.6rem;">Tele-Health Ready</span>
+              </div>
+              <h3>VitalCare — Multi-Specialty Clinic &amp; Doctors Hub</h3>
+              <p>Complete multi-specialty hospital management hub, doctor directory with real-time consultation slots, medical package checkouts, and 24/7 emergency dispatch.</p>
+            </div>
+            <div class="portfolio-footer">
+              <span class="portfolio-stat">🩺 10,000+ Happy Patients</span>
+              <a href="javascript:void(0)" onclick="openLightbox('assets/medical-vitalcare.png', 'VitalCare Health Clinic — Your Health, Our Priority', 'Client: VitalCare Health Clinic')" class="link-arrow">Live Review 🔍</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- MEDICAL ITEM 3: DentoCare -->
+        <div class="portfolio-card portfolio-item-card" data-category="medical">
+          <div class="portfolio-thumb" style="height: 250px; background: #0b1e36; cursor:pointer;" onclick="openLightbox('assets/medical-dentocare.png', 'DentoCare — Smile Brighter, Live Better', 'Client: DentoCare')">
+            <img src="assets/medical-dentocare.png" alt="DentoCare Dental Clinic" style="width:100%; height:100%; object-fit:cover; object-position:top;" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-pill" style="border-color: rgba(59,130,246,0.5); color:#93c5fd; background:rgba(10,25,50,0.85);">Medical • Dental Clinic</span>
+          </div>
+          <div class="portfolio-content">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:#60a5fa; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Client: DentoCare</span>
+                <span class="badge-trend" style="font-size:0.6rem;">Patient Portal</span>
+              </div>
+              <h3>DentoCare — Complete Dental Care Under One Roof</h3>
+              <p>Custom responsive patient booking platform, 3D dental procedure interactive showcase, instant appointment scheduler, and HIPAA-compliant doctor workflow.</p>
+            </div>
+            <div class="portfolio-footer">
+              <span class="portfolio-stat">🦷 +340% Online Bookings</span>
+              <a href="javascript:void(0)" onclick="openLightbox('assets/medical-dentocare.png', 'DentoCare — Smile Brighter, Live Better', 'Client: DentoCare')" class="link-arrow">Live Review 🔍</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRADES ITEM 1: Red Van Emergency Plumbing & Electrical -->
+        <div class="portfolio-card portfolio-item-card" data-category="trades">
+          <div class="portfolio-thumb" style="height: 250px; background: #1c1427; cursor:pointer;" onclick="openLightbox('assets/plumbing-emergency.png', 'Emergency Plumbing & Electrical Fleet Service', 'Client: Red Van Pros')">
+            <img src="assets/plumbing-emergency.png" alt="Emergency Plumbing & Electrical Fleet" style="width:100%; height:100%; object-fit:cover; object-position:top;" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-pill" style="border-color: rgba(239,68,68,0.5); color:#fca5a5; background:rgba(35,10,18,0.85);">Emergency Fleet • High-Converting</span>
+          </div>
+          <div class="portfolio-content">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:#f87171; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Client: Red Van Pros</span>
+                <span class="badge-trend" style="font-size:0.6rem;">GPS Dispatch</span>
+              </div>
+              <h3>Red Van Pros — 24/7 Mobile Trade Dispatch</h3>
+              <p>Fleet-managed trade booking ecosystem. Features live zip code service area lookup, instant online quote calculator, and automated technician dispatch notifications.</p>
+            </div>
+            <div class="portfolio-footer">
+              <span class="portfolio-stat">⚡ 15-Min Response SLA</span>
+              <a href="javascript:void(0)" onclick="openLightbox('assets/plumbing-emergency.png', 'Emergency Plumbing & Electrical Fleet Service', 'Client: Red Van Pros')" class="link-arrow">Live Review 🔍</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRADES ITEM 2: Chemplink Emergency Plumbing -->
+        <div class="portfolio-card portfolio-item-card" data-category="trades">
+          <div class="portfolio-thumb" style="height: 250px; background: #2b1108; cursor:pointer;" onclick="openLightbox('assets/plumbing-chemplink.png', 'Chemplink — Rapid Response Emergency Plumbing You Can Rely On', 'Client: Chemplink Co')">
+            <img src="assets/plumbing-chemplink.png" alt="Chemplink Emergency Plumbing" style="width:100%; height:100%; object-fit:cover; object-position:top;" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-pill" style="border-color: rgba(249,115,22,0.5); color:#fdba74; background:rgba(42,16,8,0.85);">Plumbing • 24/7 Emergency</span>
+          </div>
+          <div class="portfolio-content">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:#fb923c; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Client: Chemplink Co</span>
+                <span class="badge-trend" style="font-size:0.6rem;">High ROAS Ads</span>
+              </div>
+              <h3>Chemplink — Rapid Response Emergency Plumbing</h3>
+              <p>Aggressive click-to-call mobile lead funnel designed for emergency drain clogs, pipe bursts, and water heater breakdowns with Google Ads conversion tracking.</p>
+            </div>
+            <div class="portfolio-footer">
+              <span class="portfolio-stat">🚰 4.9★ Local Rating</span>
+              <a href="javascript:void(0)" onclick="openLightbox('assets/plumbing-chemplink.png', 'Chemplink — Rapid Response Emergency Plumbing You Can Rely On', 'Client: Chemplink Co')" class="link-arrow">Live Review 🔍</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRADES ITEM 3: Deron HVAC Installations & Repairs -->
+        <div class="portfolio-card portfolio-item-card" data-category="trades">
+          <div class="portfolio-thumb" style="height: 250px; background: #0c2d48; cursor:pointer;" onclick="openLightbox('assets/hvac-deron.png', 'Deron — Fast, Reliable HVAC Installations & Repairs', 'Client: Deron Solutions')">
+            <img src="assets/hvac-deron.png" alt="Deron Commercial HVAC Portal" style="width:100%; height:100%; object-fit:cover; object-position:top;" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-pill" style="border-color: rgba(14,165,233,0.5); color:#7dd3fc; background:rgba(6,32,54,0.85);">HVAC • Commercial Cooling</span>
+          </div>
+          <div class="portfolio-content">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:#38bdf8; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Client: Deron Solutions</span>
+                <span class="badge-trend" style="font-size:0.6rem;">Enterprise Grade</span>
+              </div>
+              <h3>Deron — Heavy Duty HVAC &amp; Climate Engineering</h3>
+              <p>High-end corporate HVAC portal with real-time chiller unit diagnostic forms, emergency breakdown dispatch, and industrial preventative maintenance tracking.</p>
+            </div>
+            <div class="portfolio-footer">
+              <span class="portfolio-stat">🌡️ Sub-Second Loading</span>
+              <a href="javascript:void(0)" onclick="openLightbox('assets/hvac-deron.png', 'Deron — Fast, Reliable HVAC Installations & Repairs', 'Client: Deron Solutions')" class="link-arrow">Live Review 🔍</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRADES ITEM 4: Coolen AC Repair & Heating -->
+        <div class="portfolio-card portfolio-item-card" data-category="trades">
+          <div class="portfolio-thumb" style="height: 250px; background: #0a1f3d; cursor:pointer;" onclick="openLightbox('assets/hvac-coolen.png', 'Coolen — AC Repair & Heating Elementor Kit', 'Client: Coolen HVAC')">
+            <img src="assets/hvac-coolen.png" alt="Coolen AC Repair Service Website" style="width:100%; height:100%; object-fit:cover; object-position:top;" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-pill" style="border-color: rgba(59,130,246,0.5); color:#93c5fd; background:rgba(8,24,48,0.85);">HVAC • AC Repair</span>
+          </div>
+          <div class="portfolio-content">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:#60a5fa; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Client: Coolen HVAC</span>
+                <span class="badge-trend" style="font-size:0.6rem;">15+ Templates</span>
+              </div>
+              <h3>Coolen — AC Repair &amp; Heating Elementor Kit</h3>
+              <p>Turnkey 15+ page high-converting WordPress &amp; Elementor web suite. Features online dispatch booking, dynamic maintenance calculator, and 24/7 technician routing.</p>
+            </div>
+            <div class="portfolio-footer">
+              <span class="portfolio-stat">❄️ +280% Inbound Calls</span>
+              <a href="javascript:void(0)" onclick="openLightbox('assets/hvac-coolen.png', 'Coolen — AC Repair & Heating Elementor Kit', 'Client: Coolen HVAC')" class="link-arrow">Live Review 🔍</a>
+            </div>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER (Direct Replica of the Original Image's bottom banner) -->
+  <section class="cta-banner-wrapper">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="cta-left">
+          <div class="cta-rocket-badge">
+            <!-- Rocket Icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+              <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+            </svg>
+          </div>
+          <div class="cta-text-content">
+            <div class="sub">READY TO GET STARTED?</div>
+            <div class="main">Let's Build Something <br><span>Amazing Together</span></div>
+          </div>
+        </div>
+
+        <div class="cta-right">
+          <div class="inquiry">Have a project in mind?<br>Let's bring your ideas to life.</div>
+          <a href="#contact" class="cta-btn-link">
+            <span>CONTACT US</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM 4 METRICS STRIP (Direct Replica of the Original Footer Badges) -->
+  <section class="trust-strip">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">
+            <!-- Star icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <div class="trust-text">
+            <div class="title">100%</div>
+            <div class="subtitle">Client Satisfaction</div>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">
+            <!-- Clock icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <div class="trust-text">
+            <div class="title">On-Time</div>
+            <div class="subtitle">Project Delivery</div>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">
+            <!-- Headset icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+              <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+            </svg>
+          </div>
+          <div class="trust-text">
+            <div class="title">24/7</div>
+            <div class="subtitle">Direct Support</div>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">
+            <!-- Price tag icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+              <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            </svg>
+          </div>
+          <div class="trust-text">
+            <div class="title">Transparent</div>
+            <div class="subtitle">Affordable Pricing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-box">
+        <div class="contact-left">
+          <span class="section-eyebrow">START A CONVERSATION</span>
+          <h3>Let’s Discuss Your Next Game-Changing Website</h3>
+          <p>Whether you need a brand-new custom web application, a WordPress rebuild, or a high-converting landing page, Usama Abu Bakr will engineer your vision into high-yielding reality.</p>
+
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <div class="contact-info-detail">
+                <div class="label">Direct Inquiry</div>
+                <div class="val">hello@krakencode.com</div>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </div>
+              <div class="contact-info-detail">
+                <div class="label">Turnaround Response</div>
+                <div class="val">Under 2 Hours Guarantee</div>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              </div>
+              <div class="contact-info-detail">
+                <div class="label">Lead Strategist</div>
+                <div class="val">Usama Abu Bakr (Personal Review)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-right">
+          <form id="contactForm" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" class="form-control" placeholder="e.g. Alex Morgan" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Work Email</label>
+              <input type="email" id="email" class="form-control" placeholder="alex@company.com" required>
+            </div>
+            <div class="form-group">
+              <label for="service">Select Service Focus</label>
+              <select id="service" class="form-control" style="background:#161c30;">
+                <option value="Website Design & Development">Website Design &amp; Development (Top Recommendation)</option>
+                <option value="WordPress Development">WordPress Custom Development</option>
+                <option value="E-commerce & Shopify">E-Commerce &amp; Shopify Development</option>
+                <option value="Landing Page Design">High-Converting Landing Page Design</option>
+                <option value="UI/UX Design">UI/UX Design &amp; Wireframing</option>
+                <option value="Maintenance & Hosting">Website Maintenance &amp; Hosting</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Project Scope or Goals</label>
+              <textarea id="message" class="form-control" placeholder="Tell Usama about your goals, timeline, and current bottlenecks..."></textarea>
+            </div>
+            <button type="submit" class="btn-glow btn-primary" style="width: 100%; padding: 14px; font-size: 1rem;">
+              <span>Send Project Request</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING SECTION -->
+  <section id="booking" class="booking-section">
+    <div class="container">
+      <div class="booking-head">
+        <span class="section-eyebrow">BOOK AN APPOINTMENT</span>
+        <h3>Reserve a Slot With <span style="background:var(--grad-purple-blue);-webkit-background-clip:text;background-clip:text;color:transparent;">Usama</span> — Confirmed in Minutes</h3>
+        <p>Pick a service, choose a date &amp; time, and get an instant branded confirmation with a stylish PDF receipt by email — sent to you and to us. No spam, no third-party middlemen.</p>
+      </div>
+
+      <form id="bookingForm" class="booking-card" novalidate>
+        <div class="bk-step">
+          <div class="bk-step-title"><span class="bk-step-num">1</span> Choose a service</div>
+          <div class="bk-services" id="bkServices">
+            <button type="button" class="bk-service" data-slug="custom-website-design" data-duration="30">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+              <span class="bk-s-title">Custom Website Design</span>
+              <span class="bk-s-meta">30-min consultation</span>
+            </button>
+            <button type="button" class="bk-service" data-slug="ecommerce-development" data-duration="30">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+              <span class="bk-s-title">E-Commerce Development</span>
+              <span class="bk-s-meta">30-min consultation</span>
+            </button>
+            <button type="button" class="bk-service" data-slug="cms-development" data-duration="30">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+              <span class="bk-s-title">CMS Development</span>
+              <span class="bk-s-meta">30-min consultation</span>
+            </button>
+            <button type="button" class="bk-service" data-slug="landing-pages" data-duration="30">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <span class="bk-s-title">Landing Pages</span>
+              <span class="bk-s-meta">30-min consultation</span>
+            </button>
+            <button type="button" class="bk-service" data-slug="maintenance-support" data-duration="30">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              <span class="bk-s-title">Website Maintenance &amp; Support</span>
+              <span class="bk-s-meta">30-min consultation</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="bk-step">
+          <div class="bk-step-title"><span class="bk-step-num">2</span> Pick date &amp; time <span class="bk-tz">All times in Asia/Karachi (PKT) · Closed Sundays</span></div>
+          <div class="bk-when">
+            <input type="date" id="bkDate" class="form-control bk-date" aria-label="Appointment date">
+            <div class="bk-slots" id="bkSlots"><div class="bk-slots-hint">Select a date to see available slots.</div></div>
+          </div>
+        </div>
+
+        <div class="bk-step">
+          <div class="bk-step-title"><span class="bk-step-num">3</span> Your details</div>
+          <div class="bk-grid">
+            <div class="form-group"><label for="bkName">Full Name *</label><input type="text" id="bkName" class="form-control" placeholder="e.g. Alex Morgan" required></div>
+            <div class="form-group"><label for="bkEmail">Email *</label><input type="email" id="bkEmail" class="form-control" placeholder="you@company.com" required></div>
+            <div class="form-group"><label for="bkPhone">Phone / WhatsApp <span class="bk-opt">(optional)</span></label><input type="tel" id="bkPhone" class="form-control" placeholder="+92 300 0000000"></div>
+            <div class="form-group"><label for="bkCompany">Company <span class="bk-opt">(optional)</span></label><input type="text" id="bkCompany" class="form-control" placeholder="Your brand"></div>
+            <div class="form-group bk-full"><label for="bkNotes">What should Usama know beforehand? <span class="bk-opt">(optional)</span></label><textarea id="bkNotes" class="form-control" placeholder="Goals, timeline, current bottlenecks…"></textarea></div>
+          </div>
+          <input type="text" name="website" id="bkWebsite" class="bk-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        </div>
+
+        <div class="bk-error" id="bkError" hidden></div>
+        <button type="submit" class="btn-glow btn-primary bk-submit" id="bkSubmit">
+          <span>Confirm Appointment</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        </button>
+        <div class="bk-note">You'll receive a branded confirmation email with a PDF receipt &amp; calendar invite — and so will we. Zero third-party watermarks, zero spam.</div>
+      </form>
+
+      <div class="bk-success" id="bkSuccess" hidden>
+        <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <h4>Appointment Confirmed!</h4>
+        <div class="bk-ref" id="bkRef">KC-000000-0000</div>
+        <p>Check your inbox — your confirmation email with the <strong>stylish PDF receipt</strong> and <strong>calendar invite</strong> is on its way. Usama has been notified too.</p>
+        <button type="button" class="btn-glow btn-primary" id="bkAgain"><span>Book Another Slot</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand" style="margin-bottom: 16px;">
+            <div class="brand-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M12 2v20M5 7l7 5 7-5M5 15l7 5 7-5"/><circle cx="12" cy="4" r="1.5" fill="#ffffff"/></svg>
+            </div>
+            <div class="brand-text">
+              <span class="logo-title">Kraken Code</span>
+              
+            </div>
+          </div>
+          <p style="color: #94a3b8; font-size: 0.88rem; line-height: 1.6; max-width: 300px;">
+            Next-generation website engineering, WordPress architecture, and AI-powered lead generation built to grow businesses globally.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Core Services</h5>
+          <ul>
+            <li><a href="#services">Website Design &amp; Development</a></li>
+            <li><a href="#services">WordPress Development</a></li>
+            <li><a href="#services">E-Commerce Development</a></li>
+            <li><a href="#services">Shopify Development</a></li>
+            <li><a href="#services">Landing Page Design</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Specializations</h5>
+          <ul>
+            <li><a href="#services">UI/UX Design</a></li>
+            <li><a href="#services">Website Discovery</a></li>
+            <li><a href="#services">Sitemaps &amp; Wireframes</a></li>
+            <li><a href="#services">Website Content Writing</a></li>
+            <li><a href="#services">Maintenance &amp; Hosting</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About Usama Abu Bakr</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Kraken Code. Founded by Usama Abu Bakr. All Rights Reserved.</div>
+        <div style="display:flex; gap:20px;">
+          <span style="color:#a855f7;">60 FPS Smooth Web System</span>
+          <span>Terms &amp; Privacy</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="actionToast">
+    <div style="background:#7c3aed; border-radius:50%; width:28px; height:28px; display:flex; align-items:center; justify-content:center;">✓</div>
+    <div id="toastMessage">Inquiry submitted to Usama Abu Bakr!</div>
+  </div>
+
+  <!-- 60 FPS ULTRA-SMOOTH PURPLE FLUID GLOW SCRIPT & INTERACTIVITY -->
+
+
+
+
+  <!-- LIGHTBOX / FULL-IMAGE FIT VIEWER -->
+  <div id="imageLightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+    <div class="lightbox-dialog" onclick="event.stopPropagation()">
+      <div class="lightbox-header">
+        <div class="lightbox-title-wrap">
+          <span class="lightbox-client-tag" id="lightboxClient">Client Showcase</span>
+          <h4 class="lightbox-heading" id="lightboxTitle">Project Preview</h4>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <button class="lightbox-action-btn" onclick="openFullInNewTab()" title="Open Original File" style="padding:5px 12px; font-size:0.75rem;">
+            <span>Open Original Tab</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </button>
+          <button class="lightbox-close-btn" onclick="closeLightbox()" title="Close Viewer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </div>
+      <div class="lightbox-body">
+        <div class="lightbox-img-wrapper">
+          <img id="lightboxImg" src="" alt="Full Project Preview" class="lightbox-full-image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+</body>
+
+</html>

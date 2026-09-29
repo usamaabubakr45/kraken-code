@@ -1,0 +1,6 @@
+# Kraken Code — robots.txt
+User-agent: *
+Allow: /
+
+# After deploying, replace the placeholder domain below with your live domain
+Sitemap: https://kraken-code.example.com/sitemap.xml
