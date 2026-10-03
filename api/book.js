@@ -168,7 +168,7 @@ module.exports = async (req, res) => {
   /* ---------- POST booking ---------- */
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
-    if (body.website) return res.status(200).json({ ok: true, ref: 'KC-SPAM-0000' }); // honeypot
+    if (body.leave_empty || body.website) { console.log('HONEYPOT TRIGGERED value=' + (body.leave_empty || body.website)); return res.status(200).json({ ok: true, ref: 'KC-SPAM-0000' }); } // honeypot: pretend success
 
     const { errs, service } = validate(body);
     if (errs.length) return res.status(400).json({ ok: false, errors: errs });

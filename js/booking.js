@@ -18,7 +18,7 @@
   const els = {
     services: $('bkServices'), date: $('bkDate'), slots: $('bkSlots'),
     name: $('bkName'), email: $('bkEmail'), phone: $('bkPhone'), company: $('bkCompany'),
-    notes: $('bkNotes'), hp: $('bkWebsite'), error: $('bkError'), submit: $('bkSubmit'),
+    notes: $('bkNotes'), hp: $('bkTrap'), error: $('bkError'), submit: $('bkSubmit'),
     success: $('bkSuccess'), ref: $('bkRef'), again: $('bkAgain'),
   };
 
@@ -129,10 +129,14 @@
           service: state.service, date: state.date, time: state.time,
           name: els.name.value.trim(), email: els.email.value.trim(),
           phone: els.phone.value.trim(), company: els.company.value.trim(),
-          notes: els.notes.value.trim(), website: els.hp.value,
+          notes: els.notes.value.trim(), leave_empty: els.hp.value,
         }),
       });
       const data = await res.json();
+      if (data.ref === 'KC-SPAM-0000') {
+        showError('Our bot-check tripped (browser autofill may have filled a hidden field). Please refresh the page once (F5) and submit again — sorry!');
+        return;
+      }
       if (res.status === 409) {
         showError(data.message || 'That slot was just taken — please pick another time.');
         els.date.dispatchEvent(new Event('change'));
