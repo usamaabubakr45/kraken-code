@@ -1,19 +1,23 @@
 /* =====================================================================
-   KRAKEN CODE — BOOKING API (Vercel serverless function)
+   KRAKEN CODE — BOOKING API (Vercel serverless function)  v2.2
    POST /api/book  → create booking, send BOTH emails + PDF receipt + .ics
    GET  /api/book?date=YYYY-MM-DD → { booked: ["09:00",...], closed: bool }
 
-   Env vars (Vercel → Project → Settings → Environment Variables):
-     GMAIL_USER          usamaabubakr45@gmail.com
-     GMAIL_APP_PASSWORD  xxxx xxxx xxxx xxxx   (Google App Password)
-     OWNER_EMAIL         (optional, defaults to GMAIL_USER)
-     ALLOW_ORIGIN        (optional, your site origin; default *)
-   Optional (auto-added when you create Vercel KV storage):
-     KV_REST_API_URL / KV_REST_API_TOKEN  → enables double-booking lock
+   v2.2 — INSTANT DELIVERY: primary channel is the Google Apps Script
+   relay (HTTPS → your Gmail sends internally = seconds). Direct Gmail
+   SMTP remains as automatic fallback; jsonTransport preview = dev mode.
+
+   Env vars (Vercel → Settings → Environment Variables):
+     APPS_SCRIPT_URL      Web-app /exec URL of apps-script/Code.gs  ← primary
+     APPS_SCRIPT_SECRET   shared secret (same as in Code.gs)
+     GMAIL_USER / GMAIL_APP_PASSWORD   fallback SMTP + sender identity
+     OWNER_EMAIL            (optional, defaults to GMAIL_USER)
+   Optional: KV_REST_API_URL / KV_REST_API_TOKEN → double-booking lock
    ===================================================================== */
 const path = require('path');
+const fs = require('fs');
 const nodemailer = require('nodemailer');
-const { CONFIG, slotsForDay, todayInTz, weekdayOfDateStr, zonedToUtc, makeRef, tzParts } = require('../lib/config');
+const { CONFIG, slotsForDay, todayInTz, weekdayOfDateStr, zonedToUtc, makeRef } = require('../lib/config');
 const { buildReceiptPdf } = require('../lib/receipt-pdf');
 const { customerEmailHtml, ownerEmailHtml, makeIcs } = require('../lib/email-templates');
 
@@ -65,6 +69,75 @@ function validate(body) {
   return { errs, service };
 }
 
+/* ---------- send channels ---------- */
+
+async function sendViaRelay(msg) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), 30000);
+  try {
+    const res = await fetch(process.env.APPS_SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // Apps Script prefers plain body
+      body: JSON.stringify(msg),
+      signal: ctrl.signal,
+      redirect: 'follow',
+    });
+    const txt = await res.text();
+    let data = {};
+    try { data = JSON.parse(txt); } catch (e) { /* html error page etc. */ }
+    if (!data.ok) throw new Error(`relay responded: ${txt.slice(0, 200)}`);
+    return { messageId: 'relay', response: 'relay-ok' };
+  } finally { clearTimeout(timer); }
+}
+
+function smtpTransport() {
+  return nodemailer.createTransport({
+    service: 'gmail',
+    auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_APP_PASSWORD },
+    connectionTimeout: 20000, greetingTimeout: 20000, socketTimeout: 45000,
+  });
+}
+
+async function sendViaSmtp(transport, msg) {
+  const info = await transport.sendMail({
+    from: msg.from, to: msg.to, subject: msg.subject, html: msg.html,
+    attachments: [
+      { filename: msg.inlineImages[0].name + '.png', content: Buffer.from(msg.inlineImages[0].base64, 'base64'), cid: msg.inlineImages[0].name },
+      ...msg.attachments.map(a => ({ filename: a.filename, content: Buffer.from(a.base64, 'base64'), contentType: a.contentType })),
+    ],
+  });
+  return { messageId: info.messageId, response: info.response };
+}
+
+/* retry wrapper: relay first, SMTP fallback, one retry each */
+async function sendEmail(payload, label) {
+  const useRelay = !!process.env.APPS_SCRIPT_URL;
+  const useSmtp = !!process.env.GMAIL_USER && !!process.env.GMAIL_APP_PASSWORD;
+  const transport = useSmtp ? smtpTransport() : null;
+
+  const attempts = [];
+  if (useRelay) attempts.push(['relay', () => sendViaRelay(payload)]);
+  if (useSmtp) attempts.push(['smtp', () => sendViaSmtp(transport, payload)]);
+  if (!attempts.length) {
+    const t = nodemailer.createTransport({ jsonTransport: true });
+    attempts.push(['dev', async () => { const i = await t.sendMail({ from: payload.from, to: payload.to, subject: payload.subject, html: payload.html }); return { messageId: i.messageId, response: 'dev' }; }]);
+  }
+
+  for (let round = 0; round < 2; round++) {
+    for (const [channel, fn] of attempts) {
+      try {
+        const info = await fn();
+        console.log(`MAIL_OK ${label} channel=${channel} to=${payload.to} msgId=${info.messageId} smtp=${info.response || ''}`);
+        return { ok: true, channel, messageId: info.messageId };
+      } catch (e) {
+        console.error(`MAIL_FAIL ${label} channel=${channel} to=${payload.to} attempt=${round + 1} err=${e.message}`);
+      }
+    }
+    if (round === 0) await new Promise(r => setTimeout(r, 1200));
+  }
+  return { ok: false, error: 'all channels failed' };
+}
+
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', process.env.ALLOW_ORIGIN || '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
@@ -82,7 +155,6 @@ module.exports = async (req, res) => {
     if (redis && !closed) {
       try { booked = JSON.parse(await redis.get(`kc:day:${date}`)) || []; } catch (e) { booked = []; }
     }
-    // hide past slots for today
     let past = [];
     if (date === todayInTz()) {
       const now = Date.now();
@@ -96,7 +168,7 @@ module.exports = async (req, res) => {
   /* ---------- POST booking ---------- */
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
-    if (body.website) return res.status(200).json({ ok: true, ref: 'KC-SPAM-0000' }); // honeypot: pretend success
+    if (body.website) return res.status(200).json({ ok: true, ref: 'KC-SPAM-0000' }); // honeypot
 
     const { errs, service } = validate(body);
     if (errs.length) return res.status(400).json({ ok: false, errors: errs });
@@ -105,7 +177,6 @@ module.exports = async (req, res) => {
     const ref = makeRef(date);
     const redis = await getRedis();
 
-    // atomic double-booking lock (only when KV configured)
     let kvActive = false;
     if (redis) {
       kvActive = true;
@@ -130,39 +201,55 @@ module.exports = async (req, res) => {
 
     const pdf = await buildReceiptPdf(booking);
     const ics = makeIcs(booking, startUtc, endUtc);
-    const logoPath = path.join(__dirname, '..', 'assets', 'icon-192.png');
 
-    const devMode = !process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD;
-    const transport = devMode
-      ? nodemailer.createTransport({ jsonTransport: true })
-      : nodemailer.createTransport({ service: 'gmail', auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_APP_PASSWORD } });
+    // logo: file on disk if present, else embedded base64
+    let logoB64 = null;
+    try {
+      const logoPath = path.join(__dirname, '..', 'assets', 'icon-192.png');
+      if (fs.existsSync(logoPath)) logoB64 = fs.readFileSync(logoPath).toString('base64');
+    } catch (e) { /* ignore */ }
+    if (!logoB64) logoB64 = require('../lib/logo-base64.js').LOGO_PNG_BASE64;
 
     const ownerEmail = process.env.OWNER_EMAIL || process.env.GMAIL_USER || CONFIG.BRAND.email;
+    const fromAddr = `"Kraken Code" <${process.env.GMAIL_USER || CONFIG.BRAND.email}>`;
     const sharedAtt = [
-      { filename: `KrakenCode-Receipt-${ref}.pdf`, content: pdf, contentType: 'application/pdf' },
-      { filename: `appointment-${ref}.ics`, content: ics, contentType: 'text/calendar; method=PUBLISH' },
+      { filename: `KrakenCode-Receipt-${ref}.pdf`, contentType: 'application/pdf', base64: pdf.toString('base64') },
+      { filename: `appointment-${ref}.ics`, contentType: 'text/calendar', base64: Buffer.from(ics, 'utf8').toString('base64') },
     ];
+    const inline = [{ name: 'krakenlogo', contentType: 'image/png', base64: logoB64 }];
 
     const msgCustomer = {
-      from: `"Kraken Code" <${process.env.GMAIL_USER || CONFIG.BRAND.email}>`,
+      secret: process.env.APPS_SCRIPT_SECRET || undefined,
+      from: fromAddr, fromName: 'Kraken Code', replyTo: ownerEmail,
       to: booking.email,
       subject: `✅ Confirmed: Your Kraken Code appointment (${ref})`,
       html: customerEmailHtml(booking),
-      attachments: [{ filename: 'logo.png', path: logoPath, cid: 'krakenlogo' }, ...sharedAtt],
+      attachments: sharedAtt, inlineImages: inline,
     };
     const msgOwner = {
-      from: `"Kraken Code Bookings" <${process.env.GMAIL_USER || CONFIG.BRAND.email}>`,
+      secret: process.env.APPS_SCRIPT_SECRET || undefined,
+      from: fromAddr, fromName: 'Kraken Code Bookings', replyTo: booking.email,
       to: ownerEmail,
       subject: `🔔 New booking ${ref} — ${service.title} • ${date} ${time} (${CONFIG.TZ})`,
       html: ownerEmailHtml(booking, { kvActive }),
-      attachments: [{ filename: 'logo.png', path: logoPath, cid: 'krakenlogo' }, ...sharedAtt],
+      attachments: sharedAtt, inlineImages: inline,
     };
 
-    const sent = await Promise.all([transport.sendMail(msgCustomer), transport.sendMail(msgOwner)]);
+    // customer first (most important), then owner — sequentially
+    const custRes = await sendEmail(msgCustomer, 'customer');
+    const ownerRes = await sendEmail(msgOwner, 'owner');
 
-    const out = { ok: true, ref, devMode, kvActive, message: devMode ? 'Booking recorded in dev mode (no Gmail creds set — emails previewed, not sent).' : 'Confirmation emails sent to you and to us.' };
+    const devMode = custRes.channel === 'dev';
+    const out = {
+      ok: true, ref, devMode, kvActive,
+      mail: { customer: custRes.ok, owner: ownerRes.ok, channel: custRes.channel || ownerRes.channel },
+      message: devMode
+        ? 'Booking recorded in dev mode (no mail creds set — emails previewed, not sent).'
+        : (custRes.ok && ownerRes.ok)
+          ? `Confirmation emails sent via ${custRes.channel} to you and to us.`
+          : `Booking saved, but email problem: customer=${custRes.ok ? 'sent' : 'FAILED'}, owner=${ownerRes.ok ? 'sent' : 'FAILED'}`,
+    };
     if (devMode) out.preview = { customer: msgCustomer.html, owner: msgOwner.html };
-    if (devMode) console.log(JSON.stringify(sent.map(s => s.message && s.message.length ? { bytes: s.message.length } : s)));
     return res.status(200).json(out);
   } catch (e) {
     console.error('BOOKING ERROR:', e);
