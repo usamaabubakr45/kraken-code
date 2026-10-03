@@ -302,11 +302,41 @@
       }, 4000);
     }
 
-    function handleFormSubmit(e) {
+    async function handleFormSubmit(e) {
       e.preventDefault();
-      const name = document.getElementById('name').value;
-      showToast(`Thank you ${name}! Usama Abu Bakr received your request.`);
-      e.target.reset();
+      const form = e.target;
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const service = document.getElementById('service').value;
+      const message = document.getElementById('message').value.trim();
+      const btn = form.querySelector('button[type="submit"]');
+      const btnLabel = btn.querySelector('span');
+      if (name.length < 2) { showToast('Please enter your name first.'); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { showToast('Please enter a valid work email.'); return; }
+      btn.disabled = true;
+      const oldLabel = btnLabel.textContent;
+      btnLabel.textContent = 'Sending…';
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, service, message }),
+        });
+        const data = await res.json();
+        if (data.ok && data.ref !== 'PR-SPAM-0000') {
+          showToast(`Request sent! Ref ${data.ref} — emails are on their way to you and Usama.`);
+          form.reset();
+        } else if (data.ref === 'PR-SPAM-0000') {
+          showToast('Bot-check tripped — please refresh the page (F5) and send again.');
+        } else {
+          showToast('Could not send: ' + ((data.errors && data.errors.join(' · ')) || data.message || 'please try again.'));
+        }
+      } catch (err) {
+        showToast('Network error — please try again in a moment.');
+      } finally {
+        btn.disabled = false;
+        btnLabel.textContent = oldLabel;
+      }
     }
 
     // Nav active link tracking
