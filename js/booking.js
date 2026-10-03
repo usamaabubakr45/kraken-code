@@ -105,6 +105,11 @@
     });
   }
 
+  /* stale-cache / no-JS submit detector */
+  if (/[?&](service|date|time|leave_empty)=/.test(location.search)) {
+    setTimeout(() => showError('DIAG: the form submitted WITHOUT JavaScript (stale cached page). Press Ctrl+Shift+R to hard-refresh, then book again.'), 300);
+  }
+
   /* ---------- errors / submit ---------- */
   function showError(msg) { els.error.textContent = msg; els.error.hidden = false; }
   function hideError() { els.error.hidden = true; }
@@ -143,15 +148,24 @@
         return;
       }
       if (!res.ok || !data.ok) {
-        showError((data.errors && data.errors.join(' · ')) || data.message || 'Something went wrong — please try again.');
+        console.log('BOOK ERROR RESPONSE', res.status, JSON.stringify(data));
+        showError('DIAG status=' + res.status + ' · ' + ((data.errors && data.errors.join(' · ')) || data.message || 'Something went wrong — please try again.'));
         return;
       }
       els.ref.textContent = data.ref;
+      const diag = document.createElement('p');
+      diag.className = 'bk-muted';
+      diag.textContent = 'DIAG ' + (data.mail
+        ? ('channel=' + data.mail.channel + ', customer=' + (data.mail.customer ? 'sent' : 'FAILED') + ', owner=' + (data.mail.owner ? 'sent' : 'FAILED'))
+        : 'no mail info in response') + (data.devMode ? ' - devMode=true' : '');
+      els.success.appendChild(diag);
+      console.log('BOOK RESPONSE', JSON.stringify(data));
       form.hidden = true;
       els.success.hidden = false;
       els.success.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } catch (err) {
-      showError('Network error — please check your connection and try again.');
+      console.log('BOOK NETWORK ERROR', String(err));
+      showError('DIAG network error — the request never completed: ' + String((err && err.message) || err));
     } finally {
       els.submit.disabled = false;
       els.submit.querySelector('span').textContent = 'Confirm Appointment';
