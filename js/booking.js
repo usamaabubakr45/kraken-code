@@ -5,7 +5,7 @@
    ===================================================================== */
 (function () {
   const API = window.BOOKING_API_URL || '/api/book';
-  const TZ = 'Asia/Karachi';
+  const TZ = 'America/New_York';
   const CLOSED_WEEKDAYS = [0];           // Sunday
   const MIN_LEAD_HOURS = 2;
   const MAX_AHEAD_DAYS = 60;
@@ -24,7 +24,7 @@
 
   const state = { service: null, date: null, time: null };
 
-  /* ---------- PKT helpers ---------- */
+  /* ---------- ET (US Eastern) helpers ---------- */
   function pkParts(ts) {
     const p = {};
     for (const { type, value } of new Intl.DateTimeFormat('en-US', {
@@ -47,7 +47,7 @@
     return out;
   }
   function slotIsPast(dateStr, time) {
-    // wall time in PKT → epoch (iterative offset solve)
+    // wall time in ET → epoch (iterative offset solve)
     const [y, mo, d] = dateStr.split('-').map(Number);
     const [h, mi] = time.split(':').map(Number);
     const target = Date.UTC(y, mo - 1, d, h, mi, 0);

@@ -176,7 +176,7 @@ module.exports = async function handler(req, res) {
 
   const ownerEmail = process.env.OWNER_EMAIL || process.env.GMAIL_USER || CONFIG.BRAND.email;
   const ref = makeContactRef();
-  const received = new Date().toLocaleString('en-GB', { timeZone: CONFIG.TZ || 'Asia/Karachi', hour12: true });
+  const received = new Date().toLocaleString('en-GB', { timeZone: CONFIG.TZ || 'America/New_York', hour12: true });
   const fromAddr = `"Kraken Code" <${process.env.GMAIL_USER || CONFIG.BRAND.email}>`;
   const payload = { name, email, service, message, ref, received };
   const inline = [{ name: 'krakenlogo', base64: LOGO_PNG_BASE64, contentType: 'image/png' }];
